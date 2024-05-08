@@ -129,6 +129,8 @@ withIsolate(SendPort sendPort) {
   }
 
   sendPort.send(total);
+  // Isolate.exit(sendPort);
+  // Isolate.kill();
 }
 
 int isolateWithArgs(List<dynamic> args) {
