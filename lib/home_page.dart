@@ -86,7 +86,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   final receivePort = ReceivePort();
                   await Isolate.spawn(withIsolate, receivePort.sendPort);
                   receivePort.listen((total) {
-                    print("Isolate completed (Total Result: $total)");
                     showSnackbar(context, "Isolate completed (Total Result: $total)");
                   });
                 },
@@ -96,7 +95,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   final receivePort = ReceivePort();
                   await Isolate.spawn(isolateWithArgs, [receivePort.sendPort, 1000000000]);
                   receivePort.listen((total) {
-                    showSnackbar(context, "Isolate completed (Total Result: $total)");
+                    showSnackbar(context, "Isolate completed (args) (Total Result: $total)");
                   });
                 },
                 child: const Text("Isolate with args")),
